@@ -5,7 +5,11 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
-import { Close, Search } from "@material-ui/icons";
+import {
+  Close,
+  Search,
+  SettingsSystemDaydreamTwoTone,
+} from "@material-ui/icons";
 import React, { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -37,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchForm = ({ handleSubmit, search, setSearch }) => {
+const SearchForm = ({ handleSubmit, search, setSearch, setData }) => {
   const [showInput, setShowInput] = useState(false);
 
   const classes = useStyles(showInput);
@@ -45,6 +49,7 @@ const SearchForm = ({ handleSubmit, search, setSearch }) => {
   const handleCloseIcon = () => {
     setShowInput(false);
     setSearch("");
+    setData(null);
   };
 
   return (

@@ -40,6 +40,7 @@ const App = () => {
         handleSubmit={handleSubmit}
         search={search}
         setSearch={setSearch}
+        setData={setData}
       />
       <SearchList data={data} />
     </div>
