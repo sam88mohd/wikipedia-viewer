@@ -37,19 +37,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchForm = () => {
+const SearchForm = ({ handleSubmit, search, setSearch }) => {
   const [showInput, setShowInput] = useState(false);
+
   const classes = useStyles(showInput);
 
+  const handleCloseIcon = () => {
+    setShowInput(false);
+    setSearch("");
+  };
+
   return (
-    <form noValidate autoComplete="off" className={classes.root}>
+    <form
+      noValidate
+      autoComplete="off"
+      className={classes.root}
+      onSubmit={handleSubmit}
+    >
       <TextField
         className={classes.textField}
         variant="outlined"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <IconButton onClick={() => setShowInput(false)}>
+              <IconButton onClick={handleCloseIcon}>
                 <Close />
               </IconButton>
             </InputAdornment>
